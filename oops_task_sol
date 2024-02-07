@@ -1,1 +1,22 @@
+#Create your own class to perform a list search operation
 
+import logging as lg
+
+lg.basicConfig(filename="logger.log", level=lg.DEBUG, filemode='w', format="%(asctime)s %(levelname)s %(message)s")
+            
+class ListSearch:
+               def __init__(self, data):
+                   self.data=data
+               
+               def search(self, value):
+                   try:
+                       lg.info("Searching...")
+                       for i in range(len(self.data)):
+                           if(self.data[i]==value):
+                               lg.info("Successful Search")
+                               return i, True
+                       lg.info("Unsuccessful")
+                       return False
+                   except Exception as e:
+                       lg.error("Error")
+                       lg.exception(e)
